@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Query:
+  = @question.query
+%p
+  %b Min selections:
+  = @question.min_selections
+%p
+  %b Max selections:
+  = @question.max_selections
+%p
+  %b Ranked:
+  = @question.ranked
+%p
+  %b User:
+  = @question.user_id
+
+= link_to 'Edit', edit_question_path(@question)
+\|
+= link_to 'Back', questions_path
