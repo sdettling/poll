@@ -1,4 +1,10 @@
 Poll::Application.routes.draw do
+  resources :answers
+
+
+  resources :question_options
+
+
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
   resources :questions

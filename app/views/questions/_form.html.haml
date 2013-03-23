@@ -6,20 +6,36 @@
         - @question.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  %fieldset
+    %legend
+      Your Question:
     = f.label :query
-    = f.text_area :query
-  .field
-    = f.label :min_selections
-    = f.number_field :min_selections
-  .field
-    = f.label :max_selections
-    = f.number_field :max_selections
-  .field
-    = f.label :ranked
-    = f.check_box :ranked
-  .field
-    = f.label :user_id
-    = f.number_field :user_id
+    = f.text_area :query, :cols => "100", :rows => "3"
+  %fieldset
+    %legend
+      Possible Answers:
+    = f.fields_for :question_options do |builder|
+      = render "question_option_fields", f: builder
+  
+    = link_to_add_fields "Add Answer", f, :question_options
+  %fieldset
+    %legend
+      Type of Question:
+    .field
+      = f.label :min_selections
+      = f.number_field :min_selections
+    .field
+      = f.label :max_selections
+      = f.number_field :max_selections
+    .field
+      = f.label :ranked
+      = f.check_box :ranked
+
+    #slider-range
+  %fieldset
+    %legend
+      Who Can Answer:
+
+
   .actions
     = f.submit 'Save'
