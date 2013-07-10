@@ -11,7 +11,7 @@
       Your Question:
     = f.label :query
     = f.text_area :query, :cols => "100", :rows => "3"
-  %fieldset
+  %fieldset#answers
     %legend
       Possible Answers:
     = f.fields_for :question_options do |builder|

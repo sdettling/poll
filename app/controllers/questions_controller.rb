@@ -25,7 +25,9 @@ class QuestionsController < ApplicationController
   # GET /questions/new.json
   def new
     @question = current_user.questions.new
-
+    2.times do
+      @question.question_options.new
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @question }

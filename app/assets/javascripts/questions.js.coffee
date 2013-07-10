@@ -4,7 +4,7 @@ jQuery ->
     $(this).closest('fieldset').hide()
     $("#slider-range").slider
       min: 1
-      max: $("fieldset").length
+      max: $("#answers fieldset").length
     event.preventDefault()
 
   $('form').on 'click', '.add_fields', (event) ->
@@ -13,7 +13,7 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     $("#slider-range").slider
       min: 1
-      max: $("fieldset").length
+      max: $("#answers fieldset").length
     event.preventDefault()
 
   $("#slider-range").slider
